@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Fitness Plan | GymFit Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container results-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <h1>Your Fitness Plan</h1>
+            </div>
+            <a href="/" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </header>
+
+        <div class="user-profile">
+            <h2><i class="fas fa-user"></i> Your Profile</h2>
+            <div class="profile-details">
+                <p><strong>Gender:</strong> {{ results.user_info.sex }}</p>
+                <p><strong>Age:</strong> {{ results.user_info.age }}</p>
+                <p><strong>Hypertension:</strong> {{ results.user_info.hypertension }}</p>
+                <p><strong>Diabetes:</strong> {{ results.user_info.diabetes }}</p>
+                <p><strong>BMI:</strong> {{ results.user_info.bmi }}</p>
+                <p><strong>Fitness Goal:</strong> {{ results.user_info.fitness_goal }}</p>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <div class="recommendation-card exercise">
+                <h2><i class="fas fa-running"></i> Recommended Exercises</h2>
+                <ul>
+                    {% for exercise in results.recommendations.exercises %}
+                    <li>{{ exercise }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="recommendation-card equipment">
+                <h2><i class="fas fa-dumbbell"></i> Recommended Equipment</h2>
+                <ul>
+                    {% for item in results.recommendations.equipment %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="recommendation-card diet">
+                <h2><i class="fas fa-utensils"></i> Diet Plan</h2>
+                <p>{{ results.recommendations.diet }}</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2023 GymFit Pro. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

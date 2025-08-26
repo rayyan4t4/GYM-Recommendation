@@ -1,0 +1,5 @@
+{
+    "features": ["Sex", "Age", "Hypertension", "Diabetes", "BMI", "Fitness Goal"],
+    "numeric_features": ["Age", "BMI"],
+    "categorical_features": ["Sex", "Hypertension", "Diabetes", "Fitness Goal"]
+}
